@@ -1,0 +1,8 @@
+ext {
+    supportLibrary = '24.2.0'
+
+    supportDependencies = [
+            appCompat: "com.android.support:appcompat-v7:${supportLibrary}",
+            recyclerView: "com.android.support:recyclerview-v7:${supportLibrary}"
+    ]
+}
