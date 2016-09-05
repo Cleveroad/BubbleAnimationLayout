@@ -25,6 +25,10 @@ abstract class CircleDrawable {
         mAlpha = 0;
     }
 
+    void setStartColor(int startColor) {
+        mStartColor = startColor;
+    }
+
     public void onDraw(Canvas canvas) {
         if (mDraw) {
             mPaint.setColor(getColor());

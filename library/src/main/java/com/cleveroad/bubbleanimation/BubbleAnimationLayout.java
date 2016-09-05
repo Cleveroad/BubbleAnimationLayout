@@ -15,6 +15,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.v4.view.MotionEventCompat;
 import android.util.AttributeSet;
@@ -346,6 +347,31 @@ public class BubbleAnimationLayout extends ViewGroup {
     }
 
     /**
+     * Setup animation color
+     * @param color animation color
+     */
+    @SuppressWarnings("unused")
+    public void setAnimationColor(@ColorInt int color) {
+        mAnimationColor = color;
+        mIndicatorPaint.setColor(Color.rgb(Color.red(mAnimationColor), Color.green(mAnimationColor), Color.blue(mAnimationColor)));
+        if (mAnimationView != null) {
+            mAnimationView.setAnimationColor(color);
+        }
+        invalidate();
+    }
+
+    /**
+     * Set indicator width
+     * @param indicatorWidth indicator width in px
+     */
+    @SuppressWarnings("unused")
+    public void setIndicatorWidth(int indicatorWidth) {
+        mIndicatorWidth = indicatorWidth;
+        mIndicatorRectangle.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + mIndicatorWidth, getMeasuredHeight() - getPaddingBottom());
+        requestLayout();
+    }
+
+    /**
      * Reset view to initial state
      */
     @SuppressWarnings("unused")
@@ -503,6 +529,7 @@ public class BubbleAnimationLayout extends ViewGroup {
     /**
      * Remove all {@link BubbleAnimationEndListener}
      */
+    @SuppressWarnings("unused")
     public void removeAllAnimationEndListeners() {
         if (mAnimationEndListeners != null) {
             mAnimationEndListeners.clear();

@@ -12,6 +12,7 @@ import android.graphics.RectF;
 import android.os.Build;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.support.annotation.ColorInt;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
@@ -25,6 +26,8 @@ class BubbleAnimationView extends View {
     private ValueAnimator mReverseValueAnimator;
 
     private RectF mBaseRectangle;
+
+    private Paint mCirclePaint;
 
     private CircleDrawable[] mCircleDrawables;
 
@@ -57,30 +60,30 @@ class BubbleAnimationView extends View {
     }
 
     private void init(int color) {
-        Paint circlePaint = new Paint();
-        circlePaint.setColor(color);
-        circlePaint.setAntiAlias(true);
+        mCirclePaint = new Paint();
+        mCirclePaint.setColor(color);
+        mCirclePaint.setAntiAlias(true);
 
         mBaseRectangle = new RectF();
 
         mCircleDrawables = new CircleDrawable[6];
 
-        CircleDrawable firstCircle = new FirstCircle(circlePaint, color);
+        CircleDrawable firstCircle = new FirstCircle(mCirclePaint, color);
         mCircleDrawables[0] = firstCircle;
 
-        CircleDrawable secondCircle = new SecondCircle(circlePaint, color);
+        CircleDrawable secondCircle = new SecondCircle(mCirclePaint, color);
         mCircleDrawables[1] = secondCircle;
 
-        CircleDrawable thirdCircle = new ThirdCircle(circlePaint, color);
+        CircleDrawable thirdCircle = new ThirdCircle(mCirclePaint, color);
         mCircleDrawables[2] = thirdCircle;
 
-        CircleDrawable fourthCircle = new FourthCircle(circlePaint, color);
+        CircleDrawable fourthCircle = new FourthCircle(mCirclePaint, color);
         mCircleDrawables[3] = fourthCircle;
 
-        CircleDrawable fifthCircle = new FifthCircle(circlePaint, color);
+        CircleDrawable fifthCircle = new FifthCircle(mCirclePaint, color);
         mCircleDrawables[4] = fifthCircle;
 
-        CircleDrawable sixthCircle = new SixthCircle(circlePaint, color);
+        CircleDrawable sixthCircle = new SixthCircle(mCirclePaint, color);
         mCircleDrawables[5] = sixthCircle;
 
         initAnimator();
@@ -184,6 +187,13 @@ class BubbleAnimationView extends View {
             for (CircleDrawable circle : mCircleDrawables) {
                 circle.onDraw(canvas);
             }
+        }
+    }
+
+    void setAnimationColor(@ColorInt int color) {
+        mCirclePaint.setColor(color);
+        for (CircleDrawable drawable : mCircleDrawables) {
+            drawable.setStartColor(color);
         }
     }
 
