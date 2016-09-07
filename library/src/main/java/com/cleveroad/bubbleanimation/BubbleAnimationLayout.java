@@ -360,6 +360,15 @@ public class BubbleAnimationLayout extends ViewGroup {
     }
 
     /**
+     * Return animation color
+     * @return animation color
+     */
+    @SuppressWarnings("unused")
+    public int getAnimationColor() {
+        return mAnimationColor;
+    }
+
+    /**
      * Set indicator width
      * @param indicatorWidth indicator width in px
      */
@@ -368,6 +377,15 @@ public class BubbleAnimationLayout extends ViewGroup {
         mIndicatorWidth = indicatorWidth;
         mIndicatorRectangle.set(getPaddingLeft(), getPaddingTop(), getPaddingLeft() + mIndicatorWidth, getMeasuredHeight() - getPaddingBottom());
         requestLayout();
+    }
+
+    /**
+     * Return indicator width
+     * @return indicator width
+     */
+    @SuppressWarnings("unused")
+    public float getIndicatorWidth() {
+        return mIndicatorWidth;
     }
 
     /**
