@@ -115,6 +115,8 @@ public class BubbleAnimationLayout extends ViewGroup {
     protected Parcelable onSaveInstanceState() {
         Parcelable superState = super.onSaveInstanceState();
         SavedState savedState = new SavedState(superState);
+        savedState.mAnimationColor = mAnimationColor;
+        savedState.mIndicatorWidth = mIndicatorWidth;
         if (mBaseContainer != null) {
             savedState.mBaseViewVisibility = mContextView != null && mContextView.getVisibility() == GONE ? VISIBLE : mBaseContainer.getVisibility();
         }
@@ -127,9 +129,10 @@ public class BubbleAnimationLayout extends ViewGroup {
             super.onRestoreInstanceState(state);
             return;
         }
-
         SavedState savedState = (SavedState) state;
         super.onRestoreInstanceState(savedState.getSuperState());
+        updateColor(savedState.mAnimationColor);
+        mIndicatorWidth = savedState.mIndicatorWidth;
         if (mBaseContainer != null) {
             mBaseContainer.setVisibility(savedState.mBaseViewVisibility);
         }
@@ -352,11 +355,7 @@ public class BubbleAnimationLayout extends ViewGroup {
      */
     @SuppressWarnings("unused")
     public void setAnimationColor(@ColorInt int color) {
-        mAnimationColor = color;
-        mIndicatorPaint.setColor(Color.rgb(Color.red(mAnimationColor), Color.green(mAnimationColor), Color.blue(mAnimationColor)));
-        if (mAnimationView != null) {
-            mAnimationView.setAnimationColor(color);
-        }
+        updateColor(color);
         invalidate();
     }
 
@@ -708,6 +707,14 @@ public class BubbleAnimationLayout extends ViewGroup {
         }
     }
 
+    private void updateColor(@ColorInt int color) {
+        mAnimationColor = color;
+        mIndicatorPaint.setColor(Color.rgb(Color.red(color), Color.green(color), Color.blue(color)));
+        if (mAnimationView != null) {
+            mAnimationView.setAnimationColor(color);
+        }
+    }
+
     /**
      * Callback for determining end of animation
      */
@@ -770,14 +777,20 @@ public class BubbleAnimationLayout extends ViewGroup {
 
             @Override
             public SavedState[] newArray(int i) {
-                return new SavedState[0];
+                return new SavedState[i];
             }
         };
 
+        int mAnimationColor;
+        float mIndicatorWidth;
         int mBaseViewVisibility;
+
 
         public SavedState(Parcel source) {
             super(source);
+            mAnimationColor = source.readInt();
+            mIndicatorWidth = source.readFloat();
+            mBaseViewVisibility = source.readInt();
         }
 
         public SavedState(Parcelable superState) {
@@ -787,6 +800,8 @@ public class BubbleAnimationLayout extends ViewGroup {
         @Override
         public void writeToParcel(Parcel out, int flags) {
             super.writeToParcel(out, flags);
+            out.writeInt(mAnimationColor);
+            out.writeFloat(mIndicatorWidth);
             out.writeInt(mBaseViewVisibility);
         }
     }
