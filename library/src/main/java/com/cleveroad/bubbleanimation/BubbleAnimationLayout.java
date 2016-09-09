@@ -473,6 +473,9 @@ public class BubbleAnimationLayout extends ViewGroup {
                 || (mReverseAnimatorSet != null && mReverseAnimatorSet.isRunning())) {
             return;
         }
+        if (mBaseContainer != null) {
+            mBaseContainer.setVisibility(VISIBLE);
+        }
         if (mAnimationView != null) {
             mAnimationView.setAnimated(false);
         }
@@ -695,6 +698,9 @@ public class BubbleAnimationLayout extends ViewGroup {
                 || (mForwardAnimatorSet != null && mForwardAnimatorSet.isRunning())
                 || (mReverseAnimatorSet != null && mReverseAnimatorSet.isRunning())) {
             return;
+        }
+        if (mBaseContainer != null) {
+            mBaseContainer.setVisibility(VISIBLE);
         }
         mAnimationView.getReverseAnimator().addListener(new AnimatorListenerAdapter() {
             @Override
