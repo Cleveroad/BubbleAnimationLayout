@@ -24,3 +24,5 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile supportDependencies.appCompat
 }
+
+apply from: './gradle-mvn-push.gradle'
