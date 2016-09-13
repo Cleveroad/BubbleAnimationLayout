@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="PhoneButton">
+        <attr name="state" format="enum">
+            <enum name="call" value="1"/>
+            <enum name="decline" value="0"/>
+        </attr>
+    </declare-styleable>
+</resources>

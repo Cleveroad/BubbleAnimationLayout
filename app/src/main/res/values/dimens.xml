@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="padding_s">4dp</dimen>
+    <dimen name="padding_m">8dp</dimen>
+    <dimen name="padding_h">16dp</dimen>
+    <dimen name="indicator_width">10dp</dimen>
+    <dimen name="list_item_size">110dp</dimen>
+    <dimen name="action_button_size">72dp</dimen>
+</resources>

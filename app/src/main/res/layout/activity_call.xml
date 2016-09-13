@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    android:id="@+id/fl_context_view"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    >
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        />
+
+    <RelativeLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="@dimen/padding_h"
+        >
+
+        <ImageView
+            android:id="@+id/iv_call"
+            android:layout_width="@dimen/action_button_size"
+            android:layout_height="@dimen/action_button_size"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:padding="@dimen/padding_h"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_decline_call"
+            android:transitionName="@string/call"
+            />
+
+        <ImageView
+            android:id="@+id/iv_write"
+            android:layout_width="@dimen/action_button_size"
+            android:layout_height="@dimen/action_button_size"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="@dimen/padding_m"
+            android:layout_toStartOf="@id/iv_call"
+            android:padding="@dimen/padding_h"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_create"
+            android:transitionName="@string/write"
+            />
+
+        <ImageView
+            android:id="@+id/iv_favorite"
+            android:layout_width="@dimen/action_button_size"
+            android:layout_height="@dimen/action_button_size"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="@dimen/padding_m"
+            android:layout_toEndOf="@id/iv_call"
+            android:padding="@dimen/padding_h"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_star"
+            android:transitionName="@string/favorite"
+            />
+    </RelativeLayout>
+</FrameLayout>
