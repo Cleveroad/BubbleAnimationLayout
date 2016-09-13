@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <declare-styleable name="BubbleAnimationView">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <declare-styleable name="BubbleAnimationView" tools:ignore="ResourceName">
         <attr name="bav_indicator_width" format="dimension"/>
         <attr name="bav_animation_color" format="color"/>
         <attr name="bav_view_type">
