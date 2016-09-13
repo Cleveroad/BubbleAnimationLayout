@@ -6,7 +6,7 @@
 You don’t want your apps look and feel boring, do you? Add some bubbles! Bubble Animation Layout for Android by Cleveroad is at your service. This component is extremely functional and suits all kinds of apps. It’s more than simple to get your app’s UI stand out and attract attention. 
 
 ![Demo image](/images/demo_.gif)
-####The animation is also available on <strong><a target="_blank" href="https://www.youtube.com/watch?v=lJSGIk4Zh9s&feature=youtu.be">Sliding Tutorial for Android on YouTube</a></strong> in HD quality.
+####The animation is also available on <strong><a target="_blank" href="https://youtu.be/rk6tTDJwB7k?list=PLi-FH7__aeiydOwY_1q5I8P2EUSseqUCj">Bubble Animation Layout for Android on YouTube</a></strong> in HD quality.
 
 It’s easy to add some spice and create something outstanding with Cleveroad Bubble Animation Layout library. Be sure, your app users will appreciate your efforts and imaginative approach. 
 
